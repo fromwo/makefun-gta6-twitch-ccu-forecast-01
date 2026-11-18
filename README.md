@@ -16,7 +16,7 @@ Forecasts GTA VI's launch-day Twitch viewers hour by hour from the first hour's 
 
 ## Validation
 
-- **Backtest (each comparable's launch day as a pseudo-case, hour 1 known, hours 2–24 answered):** leave-one-out mean log pinball loss **0.304** (spread 0.20) versus **0.363** for the persistence baseline — about 16% better. In-sample the same model scores 0.281 versus 0.363. The house baseline scores 0.387 on the four practice cases; the practice answers are not in the kit, so no practice loss can be computed locally.
+- **Backtest (each comparable's launch day as a pseudo-case, hour 1 known, hours 2–24 answered):** leave-one-out mean log pinball loss **0.3043** (spread 0.20·√(h−1), worst held-out launch 0.8806) versus **0.3630** for the persistence baseline — about 16% better. In-sample the same model scores 0.2813 versus 0.3630. The house baseline scores 0.387 on the four practice cases; the practice answers are not in the kit, so no practice loss can be computed locally. Full numbers: `analysis/SHAPE.md` and `analysis/results.json` in the build workspace.
 - **Practice cases p00–p03:** all four outputs pass the format check (exactly 23 rows, hours 2–24, five finite non-decreasing quantiles in (0, 1e9], under 65,536 bytes), two runs are byte-identical, and each case runs in about 150 ms — far under the 8-second cap.
 - **Local grade:** `grade-local` refuses program/v1 competitions ("its scorer and reference data are not published in the kit, so it is graded on the server only"), as the kit's RULES.txt states.
 
